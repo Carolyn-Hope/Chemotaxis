@@ -1,14 +1,22 @@
  ArrayList<Drone> Swarm = new ArrayList<Drone>();
  int swarmSize = Swarm.size();
  Asteroid a1 = new Asteroid(200,100, 40);
- void setup()   
- {
-   Drone d1 = new Drone(20,20);
-   Swarm.add(swarmSize, d1);
+ Drone d1 = new Drone(20,20);
+ Drone d2 = new Drone(20,20);
+ Drone d3 = new Drone(20,20);
+ Drone d4 = new Drone(20,20);
+ 
+ void setup(){
+   //Swarm.add(swarmSize - 1, d1);
+   size(400,400);
  }   
- void draw()   
- {    
-      
+ void draw(){    
+   background(0);
+   a1.show();
+   d1.update();
+   d2.update();
+   d3.update();
+   d4.update();
  }  
  class Drone{     
    int myX, myY, storedMass;
@@ -20,7 +28,12 @@
      swarmSize++;
    }
    void update(){
-   
+     fill(200);
+     ellipse(myX,myY,10,10);
+     myX += (int)((Math.random()*3) + findpull(myX,200,2.5)) - 1;
+     System.out.println();
+     myY += (int)((Math.random()*3) + findpull(myY,100,2.5)) - 1;
+     //System.out.println(myY);
    }
  }
  class Asteroid{
