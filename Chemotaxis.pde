@@ -78,7 +78,7 @@
      for(int i = 0; i < astNum; i++){
        dist = findDist(myX,myY,Field.get(i).myX,Field.get(i).myY);
        pullMag = findMag(dist, 3);
-       System.out.println(dist);
+       //System.out.println(dist);
        xBias += pullMag * ((Field.get(i).myX - myX)/dist);
        yBias += pullMag * ((Field.get(i).myY - myY)/dist);
      }
