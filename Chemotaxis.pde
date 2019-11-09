@@ -2,7 +2,9 @@
  int astNum = 0;*/
  /*Asteroid a1 = new Asteroid(300,300, 200);
  Asteroid a2 = new Asteroid(380,360, 200);*/
- 
+ ArrayList<Asteroid> Field = new ArrayList<Asteroid>();
+ ArrayList<Drone> Swarm = new ArrayList<Drone>();
+ int dSpd;
  void setup(){
    //astNum -= 2;
    dSpd = 1;
@@ -82,4 +84,3 @@
    }
    
  }
- 
