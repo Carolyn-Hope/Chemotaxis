@@ -1,8 +1,8 @@
- class Drone{     
-   int ID, probeSize, storedMass;
+ public class Drone{     
+   public int ID, probeSize, storedMass;
    float myX, myY, xBias, yBias, pullMag, dist, astpull;
-   boolean foundAst;
-   Drone(float x, float y, int num){
+   private boolean foundAst;
+   public Drone(float x, float y, int num){
      myX = x;
      myY = y;
      ID = num;
@@ -11,7 +11,7 @@
      //System.out.println(ID);
      //swarmSize++;
    }
-   void update(){
+   public void update(){
      fill(200);
      ellipse(myX,myY,probeSize,probeSize);
      
@@ -33,7 +33,7 @@
        Swarm.add(new Drone(myX, myY, Swarm.size()));
      }
    }
-   void search(){
+   private void search(){
      xBias = 0;
      yBias = 0;
      for(int i = 0; i < Field.size(); i++){
@@ -47,7 +47,7 @@
      myY += (float)((Math.random()*2) + (dSpd * yBias)) - 1;
    
    }
-   void mine(int ast){
+   private void mine(int ast){
      Field.get(ast).myMass--;
      storedMass++;
      if(Field.get(ast).myMass <= 0){
