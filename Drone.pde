@@ -1,6 +1,6 @@
  public class Drone{     
    public int ID, probeSize, storedMass;
-   float myX, myY, xBias, yBias, pullMag, dist, astpull;
+   private float myX, myY, xBias, yBias, pullMag, dist, astpull;
    private boolean foundAst;
    public Drone(float x, float y, int num){
      myX = x;
@@ -55,7 +55,7 @@
        //astNum--;
      }
    }
-   void trade(){
+   private void trade(){
      for(int i = 0; i < Swarm.size(); i++){
        if(i != ID){
          if(findDist(myX, myY, Swarm.get(i).myX, Swarm.get(i).myY) <= probeSize){

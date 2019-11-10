@@ -2,9 +2,9 @@
  int astNum = 0;*/
  /*Asteroid a1 = new Asteroid(300,300, 200);
  Asteroid a2 = new Asteroid(380,360, 200);*/
- ArrayList<Asteroid> Field = new ArrayList<Asteroid>();
- ArrayList<Drone> Swarm = new ArrayList<Drone>();
- int dSpd;
+ public ArrayList<Asteroid> Field = new ArrayList<Asteroid>();
+ public ArrayList<Drone> Swarm = new ArrayList<Drone>();
+ public int dSpd;
  void setup(){
    //astNum -= 2;
    dSpd = 1;
@@ -33,12 +33,12 @@
    dSpd += .001;
  }
 
- class Drifter extends Asteroid{
+ /*class Drifter extends Asteroid{
    Drifter(){
      
    }
  
- }
+ }*/
  float findpull(float x1, float x2, float pullstr){
      if(Math.abs(x2 - x1) >= .5){
        return((float)(pullstr/Math.sqrt(x2 - x1)));
