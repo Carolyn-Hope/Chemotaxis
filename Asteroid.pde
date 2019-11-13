@@ -1,7 +1,8 @@
  public class Asteroid{
-   public int myX, myY, mySize;
+   public int mySize;
+   public float myX, myY;
    public double originalMass, myMass;
-   public Asteroid(int x, int y, int mass){
+   public Asteroid(float x, float y, int mass){
      myX = x;
      myY = y;
      originalMass = mass;
