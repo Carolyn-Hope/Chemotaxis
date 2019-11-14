@@ -1,12 +1,7 @@
-/*int swarmSize = 0;
- int astNum = 0;*/
- /*Asteroid a1 = new Asteroid(300,300, 200);
- Asteroid a2 = new Asteroid(380,360, 200);*/
  public ArrayList<Asteroid> Field = new ArrayList<Asteroid>();
  public ArrayList<Drone> Swarm = new ArrayList<Drone>();
  public int dSpd;
  void setup(){
-   //astNum -= 2;
    dSpd = 1;
    for(int i = 0; i < 1; i++){
      Swarm.add(new Drone(20, 20, Swarm.size()));
@@ -22,8 +17,6 @@
  }   
  void draw(){    
    background(0);
-   /*a1.show();
-   a2.show();*/
    for(int i = 0; i < Field.size(); i++){
      Field.get(i).update();
      if(Field.get(i).myX < 0 || Field.get(i).myX > width || Field.get(i).myY < 0 || Field.get(i).myY > height){
@@ -34,16 +27,12 @@
    for(int i = 0; i < Swarm.size(); i++){
      Swarm.get(i).update();
    }
-   
+   if(Field.size() == 0){
+     shower(5);
+   }
    dSpd += .001;
  }
 
- /*class Drifter extends Asteroid{
-   Drifter(){
-     
-   }
- 
- }*/
  float findpull(float x1, float x2, float pullstr){
      if(Math.abs(x2 - x1) >= .5){
        return((float)(pullstr/Math.sqrt(x2 - x1)));
@@ -88,4 +77,9 @@
      return(y/Swarm.size());
    }
    
+ }
+ public void shower(int num){
+   for(int i = 0; i < num; i++){
+     Field.add(new Drifter(width,(int)(Math.random() * 361) + 20, 200));
+   }
  }
