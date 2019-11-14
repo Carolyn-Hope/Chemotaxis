@@ -5,5 +5,9 @@ public class Drifter extends Asteroid{
      originalMass = mass;
      myMass = originalMass;
      mySize =  (int)(Math.sqrt((originalMass * 5)/Math.PI));
+     myV = Math.random() * 2;
+   }
+   public void update(){
+   
    }
 }

@@ -25,11 +25,16 @@
    /*a1.show();
    a2.show();*/
    for(int i = 0; i < Field.size(); i++){
-     Field.get(i).show();
+     Field.get(i).update();
+     if(Field.get(i).myX < 0 || Field.get(i).myX > width || Field.get(i).myY < 0 || Field.get(i).myY > height){
+        Field.remove(i);
+     }
    }
+   
    for(int i = 0; i < Swarm.size(); i++){
      Swarm.get(i).update();
    }
+   
    dSpd += .001;
  }
 

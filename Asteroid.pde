@@ -12,6 +12,9 @@
    public Asteroid(){
    
    }
+   public void update(){
+     show();
+   }
    public void show(){
      fill(150);
      ellipse(myX, myY, mySize, mySize);
