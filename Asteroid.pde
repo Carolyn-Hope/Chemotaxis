@@ -1,8 +1,10 @@
  public class Asteroid{
    public int mySize;
-   public float myX, myY, mySpin;
+   public boolean shattering, outbounds;
+   public float myX, myY, mySpin, vx, vy;
    public float[] points = new float[12];
    public double originalMass, myMass;
+   private float dX, dY;
    public Asteroid(float x, float y, int mass){
      myX = x;
      myY = y;
@@ -11,14 +13,19 @@
      mySize =  (int)(Math.sqrt((originalMass * 5)/Math.PI));
      makepoints();
      mySpin = 0;
+     dX = 0;
+     dY = 0;
+     shattering = false;
    }
    public Asteroid(){
-   
+     shattering = false;
+     outbounds = false;
    }
    public void update(int id){
      show();
    }
    public void show(){
+     stroke(0);
      fill(150);
      translate(myX, myY);
      rotate(mySpin);
@@ -43,4 +50,16 @@
        points[i] *= (float)Math.sqrt(2);
      }
    }
+   public void shatter(int id){
+     if(originalMass/4 >= 200){
+       for(int i = 0; i < 4; i++){
+         Field.add(new Drifter(myX, myY,(int) originalMass/4, dX, dY));
+       }
+       
+     }
+     Field.remove(id);
+   }
+   
  }
+
+ 
